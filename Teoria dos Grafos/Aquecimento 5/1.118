@@ -1,0 +1,2 @@
+Sejam P um caminho com extremos x e x 0 e seja Q um caminho com extremos y e y 0 . Suponha que V P ∩ V Q 6 = ∅. Mostre existe um caminho com extremos x e y no grafo P ∪ Q (veja seção 1.5).
+Pergunta adicional: Se z é um vértice em V P ∩ V Q , é verdade que existe, no grafo P ∪ Q, um caminho de x a y que passa por z?

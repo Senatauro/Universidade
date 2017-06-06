@@ -1,0 +1,12 @@
+Suponha que os caminhos P e Q tem os mesmos extremos, digamos u e v. Suponha ainda que Vp (intersecção) Vq = {u, v}. Em que condições o grafo P (união) Q é um circuito?
+
+   .     .
+  / \   / \               <== P
+./   \./   \.
+
+
+   .     .
+  / \   / \               <== Q
+./   \./   \.
+
+Para P ser um caminho, é necessario que ele seja constituido de vertices que possuem somente 2 ligações(arestas) podendo ser {v1,v2} até {v1, v2, v3... vn}, o mesmo para Q. Mas como ambos os grafos possuem os extremos iguais (o primeiro e o ultimo vertice de P[os vertices que possuem somente 1 ligação] tambem são de Q), a união deles irá gerar um circuito onde todos os vertices possuem grau 2 com os extremos de P e Q conectados
