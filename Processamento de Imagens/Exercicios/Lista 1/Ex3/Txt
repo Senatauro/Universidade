@@ -1,0 +1,4 @@
+Qual a diferença entre as funções image e imshow?
+image e um comando que visualiza a matriz somente como uma matriz de numeros. As cores usadas para representar cada valor pode ser sem significado para a representacao da matriz como imagem.
+
+imshow e um comando do pacote de processamento de imagem que trata a matriz como uma imagem, Ele assume que cada elemento é a intensidade de um pixel, e que permite mais controle sobre o colormap, que na representação da imagem não apresenta as linhas da grid e a imagem mantem sua razao da escala

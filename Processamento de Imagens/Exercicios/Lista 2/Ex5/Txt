@@ -1,0 +1,4 @@
+5. Determine e diga o porquê caso S1 e S2 sejam:
+a) 4-conectados - Não são conectados
+b) 8-conectados - Eles são conectados pelos elementos 4x4 da S1 e 3x1 da S2 pois atraves da vizinhança de 8, o elemento 4x4 verifica todos os elementos a sua volta, e, por conta das matrizes estarem concatenadas, encontra o elemento 3x1 da S2
+c) m-conectados - Eles são conectados pelo mesmo motivo que a resposta B, por a adjacencia-M ser uma adjacencia-8 modificada, eles ainda se encontram pelo ponto 4x4 da S1 ou 3x1 da S2

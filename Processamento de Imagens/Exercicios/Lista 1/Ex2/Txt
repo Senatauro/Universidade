@@ -1,0 +1,5 @@
+O que ocorre se você usar o comando for para separar as bandas?
+    Depende de como for implementado, pode ser usado para separar todas as bandas na maneira de uma matriz 3 x Linhas da matriz x Colunas da matriz x valor da banda; Ou pode ser colocado em uma unica variavel, mas ira substituir o valor dela em cada interação;
+
+Como modificar o título das janelas?
+    Usando o parametro figure, pode ser colocado a função title("titulo") para adicionar um titulo a janela
