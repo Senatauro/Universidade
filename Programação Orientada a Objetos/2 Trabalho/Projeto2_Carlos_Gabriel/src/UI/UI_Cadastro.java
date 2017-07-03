@@ -23,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -35,6 +36,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -67,12 +69,12 @@ public class UI_Cadastro extends JFrame
     {
         ref = this;
         /*--- Criação dos Labels ---*/
-        lab_codCl = new JLabel("Código:");
-        lab_nomeCl = new JLabel("Nome do Cliente:");
-        lab_cpCL = new JLabel(tipoDePessoa2 + ":");
-        lab_limCredCl = new JLabel("Limite de Crédito:");
-        lab_statusCl = new JLabel("Status:");
-        lab_tempoCl = new JLabel("Cliente desde:");
+        lab_codCl = new JLabel("Código:", SwingConstants.RIGHT);
+        lab_nomeCl = new JLabel("Nome do Cliente:", SwingConstants.RIGHT);
+        lab_cpCL = new JLabel(tipoDePessoa2 + ":", SwingConstants.RIGHT);
+        lab_limCredCl = new JLabel("Limite de Crédito:", SwingConstants.RIGHT);
+        lab_statusCl = new JLabel("Status:", SwingConstants.RIGHT);
+        lab_tempoCl = new JLabel("Cliente desde:", SwingConstants.RIGHT);
         /*--- Criação dos Labels ---*/
         
         /*--- Criação dos TextField ---*/
@@ -89,23 +91,23 @@ public class UI_Cadastro extends JFrame
         /*--- Criação do comboBox ---*/
         
         /*--- Criação dos botoes ---*/
-        bt_incluir = new JButton("Incluir");
-        bt_listar = new JButton("Listar");
-        bt_excluir = new JButton("Excluir");
-        bt_anterior = new JButton("Anterior");
-        bt_proximo = new JButton("Proximo");
-        bt_sair = new JButton("Sair");
+        bt_incluir = new JButton("Incluir", new ImageIcon("./Imagens/5-gravar.png"));
+        bt_listar = new JButton("Listar", new ImageIcon("./Imagens/4-buscar.png"));
+        bt_excluir = new JButton("Excluir", new ImageIcon("./Imagens/3-excluir.png"));
+        bt_anterior = new JButton("Anterior", new ImageIcon("./Imagens/7-anterior.gif"));
+        bt_proximo = new JButton("Proximo", new ImageIcon("./Imagens/8-proximo.gif"));
+        bt_sair = new JButton("Sair", new ImageIcon("./Imagens/20-sair.png"));
         /*--- Criação dos botoes ---*/
         
         /*--- Criação do menu ---*/
         barraMenu = new JMenuBar();
         menu = new JMenu("Opções");
-        men_incluir = new JMenuItem("Incluir");
-        men_listar = new JMenuItem("Listar");
-        men_excluir = new JMenuItem("Excluir");
-        men_anterior = new JMenuItem("Anterior");
-        men_proximo = new JMenuItem("Proximo");
-        men_sair = new JMenuItem("Sair");
+        men_incluir = new JMenuItem("Incluir", new ImageIcon("./Imagens/5-gravar.png"));
+        men_listar = new JMenuItem("Listar", new ImageIcon("./Imagens/4-buscar.png"));
+        men_excluir = new JMenuItem("Excluir", new ImageIcon("./Imagens/3-excluir.png"));
+        men_anterior = new JMenuItem("Anterior", new ImageIcon("./Imagens/7-anterior.gif"));
+        men_proximo = new JMenuItem("Proximo", new ImageIcon("./Imagens/8-proximo.gif"));
+        men_sair = new JMenuItem("Sair", new ImageIcon("./Imagens/20-sair.png"));
         /*--- Criação do menu ---*/
         
         /*--- Criação dos Paineis ---*/
@@ -212,6 +214,7 @@ public class UI_Cadastro extends JFrame
                 }
             }
         };
+        
         excluir = new AbstractAction() 
         {
             /*--- Função de excluir o cadastro
@@ -281,6 +284,7 @@ public class UI_Cadastro extends JFrame
                     }    
             }
         };
+        
         proximo = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) 
@@ -328,6 +332,7 @@ public class UI_Cadastro extends JFrame
                     }    
             }
         };
+        
         sair = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
