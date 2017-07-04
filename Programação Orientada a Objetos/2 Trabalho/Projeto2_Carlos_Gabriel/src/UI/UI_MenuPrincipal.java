@@ -11,15 +11,17 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
- * @author cgsste
+ * @author Carlos Gabriel Silva Stedile
  */
 public class UI_MenuPrincipal extends JFrame
 {
@@ -28,7 +30,7 @@ public class UI_MenuPrincipal extends JFrame
     JPanel painel;
     JMenuBar barraMenu;
     JMenu menu_cadastro, menu_consultas, menu_relatorios, menu_sobre, menu_ajuda;
-    JMenuItem menCad_endereco, menCad_clFis, menCad_clJur, menCad_sair;
+    JMenuItem menCad_endereco, menCad_clFis, menCad_clJur, menCad_sair, menSob_info;
     Action ac_endereco, ac_clientesFis, ac_clientesJur, ac_sair, ac_sobre;
     
     public UI_MenuPrincipal()
@@ -42,12 +44,28 @@ public class UI_MenuPrincipal extends JFrame
         menu_ajuda = new JMenu("Ajuda");
         /*--- Criação do Menu ---*/
         
+        /*--- Adicionando hotkeys nas opções principais ---*/
+        menu_cadastro.setMnemonic('C');
+        menu_consultas.setMnemonic('O');
+        menu_relatorios.setMnemonic('R');
+        menu_sobre.setMnemonic('S');
+        menu_ajuda.setMnemonic('A');
+        /*--- Adicionando hotkeys nas opções principais ---*/
+                
         /*--- Criação das opções do menu ---*/
-        menCad_endereco = new JMenuItem("Endereço");
-        menCad_clFis = new JMenuItem("Clientes - Física");
-        menCad_clJur = new JMenuItem("Clientes - Juridica");
-        menCad_sair = new JMenuItem("Sair");
+        menCad_endereco = new JMenuItem("Endereço", new ImageIcon("Imagens/1-incluir.png"));
+        menCad_clFis = new JMenuItem("Clientes - Física", new ImageIcon("Imagens/17-historico.png"));
+        menCad_clJur = new JMenuItem("Clientes - Juridica", new ImageIcon("Imagens/12-informacao.png"));
+        menCad_sair = new JMenuItem("Sair", new ImageIcon("Imagens/20-sair.png"));
+        menSob_info = new JMenuItem("Informações");
         /*--- Criação das opções do menu ---*/
+        
+        /*--- Adicionando hotkeys nas opções do menu de cadastro ---*/
+        menCad_endereco.setMnemonic('E');
+        menCad_clFis.setMnemonic('F');
+        menCad_clJur.setMnemonic('J');
+        menCad_sair.setMnemonic('S');
+        /*--- Adicionando hotkeys nas opções do menu de cadastro ---*/
         
         /*--- Criação das ações ---*/
         ac_endereco = new AbstractAction() 
@@ -55,7 +73,7 @@ public class UI_MenuPrincipal extends JFrame
             @Override
             public void actionPerformed(ActionEvent ae) 
             {
-                System.out.println("Ainda não faz nada");
+                JOptionPane.showMessageDialog(new JFrame(), "Em desenvolvimento", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
             }
         };
         ac_clientesFis = new AbstractAction() 
@@ -98,6 +116,15 @@ public class UI_MenuPrincipal extends JFrame
                 FecharJanela();
             }
         };
+        
+        ac_sobre = new AbstractAction() 
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                JOptionPane.showMessageDialog(null, "Segundo Trabalho de POO\n\nDesenvolvedor: Carlos Gabriel Silva Stédile", "Sobre", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("Imagens/16-hm.png"));
+            }
+        };
         /*--- Criação das ações ---*/
         
         
@@ -106,6 +133,8 @@ public class UI_MenuPrincipal extends JFrame
         menu_cadastro.add(menCad_clFis);
         menu_cadastro.add(menCad_clJur);
         menu_cadastro.add(menCad_sair);
+        
+        menu_sobre.add(menSob_info);
         /*--- Adicionando os botões nas opções menu ---*/
         
         /*--- Adicionando as ações nas opções do menu ---*/
@@ -113,6 +142,9 @@ public class UI_MenuPrincipal extends JFrame
         menCad_clJur.addActionListener(ac_clientesJur);
         menCad_sair.addActionListener(ac_sair);
         /*--- Adicionando as ações nas opções do menu ---*/
+        
+        //Adicionando as ações no sobre
+        menSob_info.addActionListener(ac_sobre);
         
         /*--- Colocando menu ---*/
         super.setJMenuBar(barraMenu);        

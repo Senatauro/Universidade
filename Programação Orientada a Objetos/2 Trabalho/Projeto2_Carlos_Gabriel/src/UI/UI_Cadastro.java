@@ -40,7 +40,7 @@ import javax.swing.SwingConstants;
 
 /**
  *
- * @author cgsste
+ * @author Carlos Gabriel Silva Stedile
  */
 public class UI_Cadastro extends JFrame
 {

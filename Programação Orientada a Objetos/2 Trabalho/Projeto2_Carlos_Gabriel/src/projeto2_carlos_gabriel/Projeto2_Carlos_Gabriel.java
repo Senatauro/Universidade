@@ -10,7 +10,7 @@ import UI.UI_MenuPrincipal;
 
 /**
  *
- * @author cgsste
+ * @author Carlos Gabriel Silva Stedile
  */
 public class Projeto2_Carlos_Gabriel {
 
