@@ -20,8 +20,8 @@ int AlterarElemento(Lista_Int **nod, int pos);
 /*
     Criação de uma lista - OK
     Remoção de uma lista - OK
-    Inserção de um elemento da lista
-    Remoção de um elemento da lista
+    Inserção de um elemento da lista - OK
+    Remoção de um elemento da lista - OK
     Acesso de um elemento da lista - OK
     Alteração de um elemento da lista - OK
 */
