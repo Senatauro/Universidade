@@ -1,0 +1,18 @@
+Uma lista pode ser:
+*Sequencial ou Contígua:
+    Numa lista linear sequencial, os nós além de estarem em uma sequência lógica, estão também em sequência na memoria. A maneira mais simples de acomodar uma lista linear em um computador é através da utilização de um vetor;
+    Ex:
+    Pessoas querendo usar um caixa e fazem uma fila, uma seguinte da outra;
+
+Encadeada:
+    Os elementos não estão necessariamente armazenados de maneira sequencial na memória, porém a ordem lógica entre os elementos que compõem a lista deve ser mantida, onde cada elemento tem uma ligação com o proximo;
+    Ex:
+    Um exemplo disto seria um atendimento em um banco: as pessoas na sala de espera estão sentadas em qualquer lugar, porém sabe-se quem é o próximo a ser atendido, e o seguinte, e assim por diante;
+
+Tipos de operações principais:
+    Criação de uma lista
+    Remoção de uma lista
+    Inserção de um elemento da lista
+    Remoção de um elemento da lista
+    Acesso de um elemento da lista
+    Alteração de um elemento da lista

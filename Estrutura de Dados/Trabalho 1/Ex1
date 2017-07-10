@@ -1,0 +1,11 @@
+a) Um vetor:
+É uma coleção de variáveis de mesmo tipo, acessíveis com um único nome e armazenados de maneira continua na memória;
+
+b) Uma variável de parâmetro:
+Uma variável de parâmetro é uma variavel que armazena um valor passado para uma função ou metodo;
+
+c) Uma variável de referência:
+Em C é chamado de ponteiro, é uma variavel que armazena a posição de memoria de outra variavel do mesmo tipo;
+
+d) Uma lista linear:
+Lista linear é uma estrutura de dados na qual elementos de um mesmo tipo de dado estão organizados de maneira sequencial, não necessariamente estão alocados sequencialmente na memoria, mas sim logicamente, aonde um dado tem uma ligação com o proximo e assim por diante;
