@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.DateFormat;
@@ -65,6 +66,8 @@ public class UI_Cadastro extends JFrame
     //Ações
     private Action incluir, listar, excluir, anterior, proximo, sair;
     
+    private KeyListener aga;
+    
     public UI_Cadastro(String tipoDePessoa, String tipoDePessoa2)
     {
         ref = this;
@@ -76,7 +79,7 @@ public class UI_Cadastro extends JFrame
         lab_statusCl = new JLabel("Status:", SwingConstants.RIGHT);
         lab_tempoCl = new JLabel("Cliente desde:", SwingConstants.RIGHT);
         /*--- Criação dos Labels ---*/
-        
+
         /*--- Criação dos TextField ---*/
         txtF_codCl = new JTextField();
         txtF_nomeCl = new JTextField();
