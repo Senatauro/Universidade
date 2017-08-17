@@ -5,6 +5,8 @@
  */
 package pacman;
 
+import java.io.IOException;
+
 /**
  *
  * @author cgsste
@@ -14,7 +16,7 @@ public class Pacman {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) 
+    public static void main(String[] args) throws IOException 
     {
         UI_Interface a = new UI_Interface();
     }

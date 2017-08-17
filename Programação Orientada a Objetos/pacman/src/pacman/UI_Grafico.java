@@ -38,7 +38,6 @@ public class UI_Grafico extends JComponent implements Runnable, KeyListener
                 j++;
                 i = -1;
             }
-//System.out.print(linha);
         }
         br.close();
     }
