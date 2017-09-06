@@ -51,7 +51,7 @@ Estacionamento_Pilha* pop(Estacionamento_Pilha **topo)
     return nod;
 }
 
-Estacionamento_Pilha* popEspecifico(Estacionamento_Pilha **topo, int posicao)
+Estacionamento_Pilha* popEspecifico(Estacionamento_Pilha **topo, int posicao)       //Função propria pra retirar carros
 {
     Estacionamento_Pilha *nod = *topo;
     for(int i = tamanhoPilha; i > posicao; i--)
@@ -189,7 +189,7 @@ void main()
     //printf("%s\n", pilha->placa); //Testar se ta tudo certo
     do
     {
-        printf("Estacionamento:\nNumero de carros: %d", tamanhoPilha);
+        printf("Estacionamento Empilhomaniaco:\nNumero de carros: %d", tamanhoPilha);
         printf("\n1 - Estacionar\n2 - Tirar\n\t");
         scanf("%d", &opcao);
         LimparTela();
@@ -220,7 +220,6 @@ digitarPlaca:   scanf("%s", placa);
             case 2:
             {
                 char placa[9];
-                system("clear");
                 printf("Digite a placa do carro para ser retirado: ");
 digitarPlaca1:  scanf("%s", placa);
                 if(strlen(placa) != 8)
@@ -248,6 +247,7 @@ digitarPlaca1:  scanf("%s", placa);
             {
                 
                 printf("\nFechando programa...");
+                return;
             }
             default:
             {
