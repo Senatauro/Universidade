@@ -1,0 +1,73 @@
+1) O que é hierarquia de memoria?
+
+    O termo hierarquia de memória se refere a uma classificação de tipos de memória em função de desempenho. Essa classificação geralmente segue duas dimensões: tamanho/capacidade e velocidade de acesso, sendo tradicionalmente representada por uma pirâmide, aonde as mais velozes estão no topo da pirâmide, enquanto as com maior capacidade estão na base dela. E a hierarquia de memoria é dividida em 3 partes, no topo da pirâmide tem a memoria interna, a qual possui o menor tempo de acesso porem a menor capacidade; no meio da pirâmide tem a memoria externa, o qual é um misto entre tempo de acesso e capacidade; e na base da pirâmide tem o armazenamento de segurança, aonde é possivel armazenar uma quantidade gigantesca de dados porem o tempo de acesso é extremamente alto;
+
+2) Quais são as características de um sistema de memória? Explique cada um deles.
+
+    As caracteristicas de um sistema de memoria são:
+    Localização:
+        É utilizado para dizer que é memoria interna ou externa
+
+    Capacidade:
+        É o tamanho da palavra(quantidade de bits) e o numero de palavras
+
+    Unidade de transferencia:
+        Capacidade de transferencia de dados da memoria que é dado em palavras e blocos
+
+    Metodo de acesso:
+        Metodo utilizado para acessar dados na memoria, eles podem ser sequenciais, diretos, aleatórios e associativos. 
+        O sequencial é como se fosse um vetor, o acesso da memoria é um atras do outro;
+        O direto é utilizado pelos dispositivos perifericos para acessar diretamente a memoria, sem precisar passar pelo processador antes.
+        O acesso aleatorio é a capacidade de acessar um elemento arbitrário de uma sequencia em tempo igual, sem ir de maneira sequencial(ver acesso sequencial);
+
+    Desempenho:
+        Indica a performance da memoria durante a realização e um procedimento. É dado pelo tempo de acesso, tempo de ciclo e taxa de transferencia;
+        O tempo de acesso indica quanto tempo a memória gasta para colocar uma informação no barramento de dados após uma determinada posição ter sido endereçada
+    Tecnologia:
+        Indica quais recursos cada memória utiliza, como semicondutores, memoria magnetica, memoria optica e magneto-optica;
+    Caracteristicas fisicas:
+        As caracteristicas fisicas da memoria são se ela é volatil ou não e se é apagavel ou não.
+        Uma memoria ser volatil quer dizer que se os dados armazenados não forem guardados eles serao apagados apos o encerramento do computador, ou seja, todo o conteudo da memoria ram que não for armazenado em uma memoria externa sera perdido.
+        Uma memoria ser apagavel quer dizer que o conteudo dela é possivel ser deletado e colocado outro em seu lugar. Ex:EPROM(erasable programmable read-only memory)
+
+    Organização:
+        indica como são organizados os dados a serem armazenados na memoria
+
+3) Três questões devem ser analisadas em um projeto de memória, quais são elas?
+    A localização: Para saber se a memoria é interna ou externa;
+
+    A capacidade: quantidade de armazenamento possivel especificado em bytes, e o tamanho da palavra varia entre 16 e 64 bits;
+
+    Unidade de transferencia: número de linhas de dados do modulo de memoria;
+
+
+4) Qual a relação que existe entre custo e velocidade de armazenamento para memórias?
+    ???
+
+
+5) Quais as características da memória RAM?
+    A memoria RAM é uma memoria interna volatil de acesso randomico que permite leitura e gravação de dados;
+
+
+6) Quais as características da memória ROM?
+    A memoria ROM é uma memoria não volatil que permite somente leitura de dados;
+
+
+7) Para que serve o código de Hamming?
+    O codigo de Hamming é utilizado para identificação e correção de erros no envio de bits
+
+
+8) Quais são os tipos de memória externa que existem?
+    HD, Flash, CD-ROM, CD-R, CD-RW, DVD, Disquete, fita magnetica
+
+
+10) O que significa redundância no RAID 1?
+    A redundancia do RAID 1 é que o HD duplica uma das unidades para ter como copia de segurança, com isso se o disco principal falhar, os dados podem ser imediatamente recuperados por causa da copia de segurança
+
+
+11) Qual a principal característica do RAID 0?
+    Diferente do RAID 1, o RAID 0 não tem redundancia, um exemplo disso é caso você possua 2 HD's de 80 Gb; no RAID 1, o espaço utilizavel seria somente de 80 Gb, pois os outros 80 Gb estariam sendo utilizados como copia de segurança; Enquanto que no RAID 0, o espaço utilizavel seria de 160Gb, porem não haveria copia de segurança, e caso o HD apresentasse um erro, o sistema parava;
+    E o desempenho do RAID 0 é melhor, pois não precisa fazer a operação de copiar os dados para a copia de segurança sempre que uma operação for feita;
+
+
+12) O RAID 5 possuiu 5 discos? Justifique.
