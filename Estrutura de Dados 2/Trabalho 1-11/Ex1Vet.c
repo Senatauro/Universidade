@@ -15,7 +15,7 @@ typedef struct Par
 }Par;
 
 Produto BuscaSequencial(Produto* vetor, int tamanhoDoVetor, int codigoParaProcurar);
-Par* BuscaBinaria(Produto* vetor, int metadeDoVetor, int codigoParaProcurar);
+Produto BuscaBinaria(Produto* vetor, int posicaoAtual, int valorX, int codigoParaProcurar);
 
 int main()
 {
@@ -72,7 +72,13 @@ int main()
                 int codigoParaProcurar;
                 printf("Digite o codigo do produto que quer procurar: ");
                 scanf("%d", &codigoParaProcurar);
-                Par *p = BuscaBinaria(vetor, tamanhoDoVetor/2, codigoParaProcurar);
+                Produto p = BuscaBinaria(vetor, tamanhoDoVetor/2, tamanhoDoVetor/2, codigoParaProcurar);
+                if(p.codigo == -1)
+                    printf("Não encontrou produto com esse codigo no vetor\n\n");
+                else
+                {
+                    printf("Produto: %s\nPreco: %f\nCodigo: %d\n\n", p.nome, p.preco, p.codigo);
+                }
                 break;
             }
             case 5:
@@ -102,22 +108,21 @@ Produto BuscaSequencial(Produto* vetor, int tamanhoDoVetor, int codigoParaProcur
     return p;
 }
 
-Produto BuscaBinaria(Produto* vetor, int metadeDoVetor, int codigoParaProcurar)
+Produto BuscaBinaria(Produto* vetor, int posicaoAtual, int valorX, int codigoParaProcurar)
 {
     Produto p;
-    int posicaoParaProcura;
-    p.codigo = -1;
-    for(int i = 0; i < metadeDoVetor; i++)
+    if(vetor[posicaoAtual].codigo > codigoParaProcurar)
     {
-        if(vetor[i].codigo == codigoParaProcurar)
-        {
-            p->prod = vetor[i];
-            p->posicao = i;
-            return p;
-        }
+        return BuscaBinaria(vetor, posicaoAtual + valorX, valorX/2, codigoParaProcurar);
     }
-    p->posicao = -1;
-    return p;
+    else if(vetor[posicaoAtual].codigo < codigoParaProcurar)
+    {
+        return BuscaBinaria(vetor, posicaoAtual - valorX, valorX/2, codigoParaProcurar);
+    }
+    else
+    {
+        return vetor[posicaoAtual];
+    }
 }
 
 void SelectionSort(Produto* vetor, int tamanhoDoVetor)
