@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1499796239 source:/home/cgsste/Git/Universidade/Teoria dos Grafos/Pasta com codigos de grafos/grafos/main.c
+	<stdio.h>
+	"grafo.h"
+	"fabrica.h"
+
+1499796118 /home/cgsste/Git/Universidade/Teoria dos Grafos/Pasta com codigos de grafos/grafos/grafo.h
+	<stdlib.h>
+
+1499609908 /home/cgsste/Git/Universidade/Teoria dos Grafos/Pasta com codigos de grafos/grafos/fabrica.h
+	<stdlib.h>
+	"grafo.h"
+
