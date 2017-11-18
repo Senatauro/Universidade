@@ -13,7 +13,6 @@ void main()
     srand((unsigned) time(&tempo));
     scanf("%d %d", &tamanhoVetor, &argc);
     start_t = clock();
-    printf("Starting of the program, start_t = %ld\n", start_t);
     int *vetor = (int*) malloc(sizeof(int) * tamanhoVetor);
     if(argc != 2)
         for(i = 0; i < tamanhoVetor; i++)
@@ -28,13 +27,15 @@ void main()
                 vetor[i] = jota;
             }
         }
+    printf("Iniciando a organização, start_t = %ld\n", start_t);
     //SelectionSort(vetor, tamanhoVetor);
     InsertionSort(vetor, tamanhoVetor);
+    printf("Terminou a organização, start_t = %ld\n", start_t);
+    
     end_t = clock();
-    printf("Going to scan a big loop, start_t = %ld\n", end_t);
     
     total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("Total time taken by CPU: %f\n", total_t);
+    printf("Tempo total levado pela cpu: %f\n", total_t);
     /*for(int i = 0; i < tamanhoVetor; i++)
     {
         printf("Pos %d: %d\n", i + 1, vetor[i]);

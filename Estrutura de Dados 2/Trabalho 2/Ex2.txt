@@ -1,0 +1,1 @@
+O metodo de inserção roda em tempo linear, já o de seleção não é adaptavel e acaba rodando em n²
