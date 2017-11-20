@@ -36,11 +36,10 @@ void main()
     
     total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
     printf("Tempo total levado pela cpu: %f\n", total_t);
-    /*for(int i = 0; i < tamanhoVetor; i++)
+    for(int i = 0; i < tamanhoVetor; i++)
     {
         printf("Pos %d: %d\n", i + 1, vetor[i]);
-    }*/
-
+    }
 }
 
 void InsertionSort(int *vetor, int tamanhoVetor)    //Insertion sort vai rodando até encontrar um valor menor que o elemento selecionado
