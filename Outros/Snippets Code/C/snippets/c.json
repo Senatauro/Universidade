@@ -124,7 +124,8 @@
 					"\t\t}",
 				"\t}",
 			"}"
-		]
+		],
+		"description": "Cria o insertion sort baseado em numeros inteiros"
 	},
 	"Quick Sort":
 	{
@@ -163,8 +164,9 @@
 					"\t\tvetor[i + 1] = aux;",
 				"\t}",
 				"\treturn i+1;",
-			"}",
-		]
+			"}"
+		],
+		"description": "cria o quick sort baseado em numeros inteiros"
 	}
 
 }
