@@ -1,0 +1,130 @@
+{
+/*
+	// Place your snippets for C here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+	"Loop For":
+	{
+		"prefix": "for",
+		"body":
+		[
+			"for(int i = 0; $1; i++)",
+			"{",
+			"\t$0",
+			"}"
+		],
+		"description": "Cria um loop for com variavel i++"
+	},
+	"While":
+	{
+		"prefix": "whi",
+		"body": 
+		[
+			"while($1)",
+			"{",
+			"\t$0",			
+			"}"
+		],
+		"description": "Cria um loop while"
+	},
+
+	"Includes":
+	{
+		"prefix": "inc",
+		"body": "#include<stdio.h>\n#include<stdlib.h>\n\n",
+		"description": "Adiciona os includes padroes"
+	},
+
+	"FuncMain":
+	{
+		"prefix": "funMain",
+		"body": "void main()\n{\n\t$0\n}",
+		"description": "Cria a funcao main"
+	},
+
+	//Algoritmos de ordenação
+	"Bubble Sort":
+	{
+		"prefix": "BubSort",
+		"body": 
+		[
+			"void BubbleSort(int vet, int tamanhoDoVetor)",
+			"{",
+				"\tint aux;",
+				"\tfor(int i = tamanhoDoVetor - 1; i>0; i--)",
+				"\t{",
+					"\t\tfor(int j = 0; j < i; j++)",
+					"\t\t{",
+						"\t\t\tif(vet[j] > vet[j+1])",
+						"\t\t\t{",
+							"\t\t\t\taux = vet[j+1];",
+							"\t\t\t\tvet[j+1] = vet[j];",
+							"\t\t\t\tvet[j] = aux;",
+						"\t\t\t}",
+					"\t\t}",
+				"\t}",
+			"}"
+		],
+		"description": "Cria o bubble sort baseado em numeros inteiros"
+	},
+
+	"Selection Sort":
+	{
+		"prefix": "SelSort",
+		"body": 
+		[
+		"void SelectionSort(int *vetor, int tamanhoVetor)",
+		"{",
+			"\tint i, j, menorValorAtualPos;",
+			"\tfor(i = 0; i < tamanhoVetor; i++)",
+			"\t{",
+				"\t\tmenorValorAtualPos = i;",
+				"\t\tfor(j = i; j < tamanhoVetor; j++)",
+				"\t\t{",
+					"\t\t\tif(vetor[j] < vetor[menorValorAtualPos])",
+						"\t\t\t\tmenorValorAtualPos = j;",
+				"\t\t}",
+				"\t\tif(menorValorAtualPos != i)",
+				"\t\t{",
+					"\t\t\tint aux = vetor[i];",
+					"\t\t\tvetor[i] = vetor[menorValorAtualPos];",
+					"\t\t\tvetor[menorValorAtualPos] = aux;",
+				"\t\t}",
+			"\t}",
+		"}"
+		],
+		"description": "Cria o selection sort baseado em numeros inteiros"
+	},
+	"Insertion Sort":
+	{
+		"prefix": "InsSort",
+		"body":
+		[
+			"void InsertionSort(int *vetor, int tamanhoVetor)    //Insertion sort vai rodando até encontrar um valor menor que o elemento selecionado",
+			"{                                                   //É quase um bubble sort, só que não roda n vezes pra todos os elementos",
+				"\tint i, j;",
+				"\tfor(i = 0; i < tamanhoVetor; i++)",
+				"\t{",
+					"\t\tfor(j = i; j > 0 && vetor[j] < vetor[j-1]; j--)",
+					"\t\t{",
+						"\t\t\tint aux = vetor[j];",
+						"\t\t\tvetor[j] = vetor[j-1];",
+						"\t\t\tvetor[j-1] = aux;",
+					"\t\t}",
+				"\t}",
+			"}"
+		]
+	}
+
+}
