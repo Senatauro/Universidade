@@ -125,6 +125,46 @@
 				"\t}",
 			"}"
 		]
+	},
+	"Quick Sort":
+	{
+		"prefix": "QSort",
+		"body": 
+		[
+			"void QuickSort(int vetor, int inicio, int fim)",
+			"{",
+				"\tif(inicio < fim)",
+				"\t{",
+					"\t\tint p = particionar(vetor, inicio, fim);",
+					"\t\tQuickSort(vetor, inicio, p - 1);",
+					"\t\tQuickSort(vetor, p + 1, fim);",
+				"\t}",
+			"}\n\n",
+			
+			"int particionar(int vetor, int inicio, int fim)",
+			"{",
+				"\tint pivo = vetor[fim];",
+				"\tint aux;",
+				"\tint i = inicio - 1;",
+				"\tfor(int j = inicio; j < fim; j++)",
+				"\t{",
+					"\t\tif(vetor[j] < pivo)",
+					"\t\t{",
+						"\t\t\ti++;",
+						"\t\t\taux = vetor[j];",
+						"\t\t\tvetor[j] = vetor[i];",
+						"\t\t\tvetor[i] = aux;",
+					"\t\t}",
+				"\t}",
+				"\tif(vetor[fim] < vetor[i+1])",
+				"\t{",
+					"\t\taux = vetor[fim];",
+					"\t\tvetor[fim] = vetor[i + 1];",
+					"\t\tvetor[i + 1] = aux;",
+				"\t}",
+				"\treturn i+1;",
+			"}",
+		]
 	}
 
 }
