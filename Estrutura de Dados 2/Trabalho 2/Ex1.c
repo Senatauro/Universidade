@@ -12,7 +12,6 @@ void main()
     
     srand((unsigned) time(&tempo));
     scanf("%d %d", &tamanhoVetor, &argc);
-    start_t = clock();
     int *vetor = (int*) malloc(sizeof(int) * tamanhoVetor);
     if(argc != 2)
         for(i = 0; i < tamanhoVetor; i++)
@@ -27,6 +26,7 @@ void main()
                 vetor[i] = jota;
             }
         }
+    start_t = clock();        
     printf("Iniciando a organização, start_t = %ld\n", start_t);
     //SelectionSort(vetor, tamanhoVetor);
     InsertionSort(vetor, tamanhoVetor);

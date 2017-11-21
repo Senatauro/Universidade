@@ -164,14 +164,3 @@ void InsertionSort(int *vetor, int tamanhoVetor, int analizar, int checar)      
         // flagParaAnalize = 0;
     }
 }
-/*
-void MandarElementosParaFrente(int vetor*, int posicao, int pontoParaParar)
-{
-    int aux = vetor[i+1];
-    for(int i = posicao; i < pontoParaParar; i++)
-    {
-        vetor[i+1] = aux;
-        vetor[i + 1] = vetor[i];
-    }
-}
-*/
