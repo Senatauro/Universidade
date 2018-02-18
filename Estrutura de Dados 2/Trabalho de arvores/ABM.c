@@ -24,14 +24,16 @@ void MostrarValoresDaArvore();
 
 //Funções de ajuda
 void MostrarERRO();
-
+void MostrarTCHAU();
+void MostrarVALORENCONTRADO();
+void MostrarVALORNAOENCONTRADO();
 
 int main()
 {
     ABM *arvore = NULL;
     printf("Digite o tamanho maximo de valores em cada no: ");
     scanf("%d", &tamanhoMaximoDeCadaNo);
-    arvore = CriarNodo();
+    //arvore = CriarNodo();
     if(!arvore)
     {
         MostrarERRO();
@@ -54,11 +56,23 @@ int main()
                 //A partir daqui opção é a variavel local para pegar elemento de procura
                 scanf("%d", &opcao);
                 opcao = PesquisarPorElemento(arvore, opcao);
-                opcao != VALOR_NAO_ENCONTRADO ? printf("Valor encontrado!\n") : printf("Valor nao encontrado");
-                
+                if(opcao != VALOR_NAO_ENCONTRADO)
+                {
+                    MostrarVALORENCONTRADO(); 
+                    printf("Valor encontrado!\n");
+                }
+                else
+                {
+                    MostrarVALORNAOENCONTRADO();
+                    printf("Valor nao encontrado...\n");
+                }
                 break;
             case 3:
                 MostrarValoresDaArvore(arvore);
+                break;
+            case 4:
+                MostrarTCHAU();
+                return -1;
                 break;
             default:
                 break;
@@ -74,6 +88,7 @@ int InserirElemento(ABM **ponteiro, int valor)
     {
         nodo = CriarNodo();
         nodo->valores[0] = valor;
+        *ponteiro = nodo;
         return 1;
     }
     for(int i = 0; i < tamanhoMaximoDeCadaNo; i++)
@@ -114,9 +129,18 @@ int PesquisarPorElemento(ABM *nodo, int valor)
 {
     for(int i = 0; i <= tamanhoMaximoDeCadaNo; i++)
     {
-        if(nodo->ponteiros[i] != PONTEIRO_NAO_INICIALIZADO)
-        printf("%x", nodo->ponteiros[i]);
+        //Caso o valor seja encontrado
+        if(nodo->valores[i] == valor)
+            return valor;
+        //Caso o valor não seja encontrado e possui um valor maior que o procurado
+        else if(nodo->valores[i] > valor)
+        {
+            //Caso o ponteiro na posicao do valor maior não seja inicializado retorna VALOR_NAO_ENCONTRADO, caso contrario, pesquisa dentro dele
+            return nodo->ponteiros[i] != PONTEIRO_NAO_INICIALIZADO ? PesquisarPorElemento(nodo->ponteiros[i], valor) : VALOR_NAO_ENCONTRADO;
+        }
     }
+    //mesma coisa que ali em cima
+    return nodo->ponteiros[tamanhoMaximoDeCadaNo] != PONTEIRO_NAO_INICIALIZADO ? PesquisarPorElemento(nodo->ponteiros[tamanhoMaximoDeCadaNo], valor) : VALOR_NAO_ENCONTRADO;
 }
 
 void MostrarValoresDaArvore(ABM *nodo)
@@ -155,13 +179,58 @@ ABM* CriarNodo()
 //Funções de ajuda
 void MostrarERRO()
 {
-    printf("\n\n ________  _______   _______    ______  \n");
-    printf("/        |/       \\ /       \\  /      \\ \n");
-    printf("$$$$$$$$/ $$$$$$$  |$$$$$$$  |/$$$$$$  |\n");
-    printf("$$ |__    $$ |__$$ |$$ |__$$ |$$ |  $$ |\n");
-    printf("$$    |   $$    $$< $$    $$< $$ |  $$ |\n");
-    printf("$$$$$/    $$$$$$$  |$$$$$$$  |$$ |  $$ |\n");
-    printf("$$ |_____ $$ |  $$ |$$ |  $$ |$$ \\__$$ |\n");
-    printf("$$       |$$ |  $$ |$$ |  $$ |$$    $$/ \n");
-    printf("$$$$$$$$/ $$/   $$/ $$/   $$/  $$$$$$/  \n\n");
+    printf("Não digite nada por agora, vai estragar o efeito\n");
+    printf("\n\n███████╗██████╗ ██████╗  ██████╗ ");
+    sleep(1);
+    printf("\n██╔════╝██╔══██╗██╔══██╗██╔═══██╗");
+    sleep(1);
+    printf("\n█████╗  ██████╔╝██████╔╝██║   ██║");
+    sleep(1);
+    printf("\n██╔══╝  ██╔══██╗██╔══██╗██║   ██║");
+    sleep(1);
+    printf("\n███████╗██║  ██║██║  ██║╚██████╔╝");
+    sleep(1);
+    printf("\n╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ \n\n");
+    sleep(1);
+}
+
+void MostrarVALORENCONTRADO()
+{
+    printf("\n██╗   ██╗ █████╗ ██╗      ██████╗ ██████╗ ");
+    printf("\n██║   ██║██╔══██╗██║     ██╔═══██╗██╔══██╗");
+    printf("\n██║   ██║███████║██║     ██║   ██║██████╔╝");
+    printf("\n╚██╗ ██╔╝██╔══██║██║     ██║   ██║██╔══██╗");
+    printf("\n ╚████╔╝ ██║  ██║███████╗╚██████╔╝██║  ██║");
+    printf("\n  ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝");
+    printf("\n\n███████╗███╗   ██╗ ██████╗ ██████╗ ███╗   ██╗████████╗██████╗  █████╗ ██████╗  ██████╗ ");
+    printf("\n██╔════╝████╗  ██║██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔═══██╗");
+    printf("\n█████╗  ██╔██╗ ██║██║     ██║   ██║██╔██╗ ██║   ██║   ██████╔╝███████║██║  ██║██║   ██║");
+    printf("\n██╔══╝  ██║╚██╗██║██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██╗██╔══██║██║  ██║██║   ██║");
+    printf("\n███████╗██║ ╚████║╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║██║  ██║██████╔╝╚██████╔╝");
+    printf("\n╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝ \n\n");
+}
+
+void MostrarVALORNAOENCONTRADO()
+{
+    printf("\n██╗   ██╗ █████╗ ██╗      ██████╗ ██████╗     ███╗   ██╗ █████╗  ██████╗");
+    printf("\n██║   ██║██╔══██╗██║     ██╔═══██╗██╔══██╗    ████╗  ██║██╔══██╗██╔═══██╗");
+    printf("\n██║   ██║███████║██║     ██║   ██║██████╔╝    ██╔██╗ ██║███████║██║   ██║");
+    printf("\n╚██╗ ██╔╝██╔══██║██║     ██║   ██║██╔══██╗    ██║╚██╗██║██╔══██║██║   ██║");
+    printf("\n ╚████╔╝ ██║  ██║███████╗╚██████╔╝██║  ██║    ██║ ╚████║██║  ██║╚██████╔╝");
+    printf("\n  ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝    ╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝");
+    printf("\n\n███████╗███╗   ██╗ ██████╗ ██████╗ ███╗   ██╗████████╗██████╗  █████╗ ██████╗  ██████╗ ");
+    printf("\n██╔════╝████╗  ██║██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██╔═══██╗");
+    printf("\n█████╗  ██╔██╗ ██║██║     ██║   ██║██╔██╗ ██║   ██║   ██████╔╝███████║██║  ██║██║   ██║");
+    printf("\n██╔══╝  ██║╚██╗██║██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██╗██╔══██║██║  ██║██║   ██║");
+    printf("\n███████╗██║ ╚████║╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║██║  ██║██████╔╝╚██████╔╝");
+    printf("\n╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝ \n\n");
+}
+void MostrarTCHAU()
+{
+     printf("\n\n████████╗ ██████╗██╗  ██╗ █████╗ ██╗   ██╗");
+     printf("\n╚══██╔══╝██╔════╝██║  ██║██╔══██╗██║   ██║");
+     printf("\n   ██║   ██║     ███████║███████║██║   ██║");
+     printf("\n   ██║   ██║     ██╔══██║██╔══██║██║   ██║");
+     printf("\n   ██║   ╚██████╗██║  ██║██║  ██║╚██████╔╝");
+     printf("\n   ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ \n\n");
 }
