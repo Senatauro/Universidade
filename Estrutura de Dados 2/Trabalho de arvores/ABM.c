@@ -31,9 +31,9 @@ void MostrarVALORNAOENCONTRADO();
 int main()
 {
     ABM *arvore = NULL;
-    printf("Digite o tamanho maximo de valores em cada no: ");
+    printf("Digite o tamanho maximo de cada no: ");
     scanf("%d", &tamanhoMaximoDeCadaNo);
-    //arvore = CriarNodo();
+    arvore = CriarNodo();
     if(!arvore)
     {
         MostrarERRO();
