@@ -19,12 +19,16 @@ typedef struct ArvoreB
 {
     int *valores;
     struct ArvoreB **ponteiros;
+    struct ArvoreB *nodoPai;
 }ArvoreB;
 
 ArvoreB* CriarNodo();
 int InserirElemento(ArvoreB **ponteiro, int valor);
+int InserirNodo(ArvoreB **nodoAondeVaiSerInserido, ArvoreB **nodoParaSerInserido);
 void MostrarValoresDaArvore(ArvoreB *nodo);
-void AjustarPonteiros(ArvoreB **nodo);
+ArvoreB* DividirNodo(ArvoreB **ponteiro, int valor);
+int InserirElementoNoVetor(int *vetor, int valor);
+void InserirPonteirosNoNodo(ArvoreB **nodoAReceberPonteiro, ArvoreB **ponteiro);
 //Funções de ajuda
 void MostrarERRO();
 void MostrarTCHAU();
@@ -50,7 +54,23 @@ int main()
     tamanhoMaximoDeValores = tamanhoMaximoDeFilhos - 1;
     tamanhoMinimoDeValores = tamanhoMinimoDeFilhos - 1;
     vetorParaDispersoes = malloc(sizeof(int) * ordemDaArvore);
-    arvore = CriarNodo();
+    arvore = CriarNodo(NULL);
+    /* COMANDOS PARA DEBUG's */
+    //InserirElementoNoVetor(arvore->valores, 71);
+    //InserirElementoNoVetor(arvore->valores, 122);
+    //ArvoreB *teste1 = CriarNodo(NULL);
+    //ArvoreB *teste2 = CriarNodo(NULL);
+    //
+    //InserirElementoNoVetor(teste1->valores, 61);
+    //InserirElementoNoVetor(teste1->valores, 28);
+    //InserirPonteirosNoNodo(&arvore, &teste1);
+    //InserirElementoNoVetor(arvore->ponteiros[1]->valores, 37);
+
+    //InserirElementoNoVetor(arvore->valores, 71);
+    //InserirElementoNoVetor(arvore->valores, 122);
+    
+    /* COMANDOS PARA DEBUG's */
+
     do{
         int opcao = 0;
         printf("Escolha  sua opção: \n1 - Inserir valor\t\t2 - Pesquisar por elemento\n3 - Mostrar valores da arvore\t4 - Sair do programa\n\nSua opcao: ");
@@ -63,6 +83,7 @@ int main()
                 scanf("%d", &opcao);
                 opcao = InserirElemento(&arvore, opcao);
                 printf("\nRaiz da arvore: %d\n\n", arvore->valores[0]);
+                printf("\nRetorno: %d\n\n", opcao);
                 break;
             case 2:
                 //A partir daqui opção é a variavel local para pegar elemento de procura
@@ -109,56 +130,125 @@ int main()
 int InserirElemento(ArvoreB **ponteiro, int valor)
 {
     ArvoreB *nodo = *ponteiro;
-    if(nodo == PONTEIRO_NAO_INICIALIZADO)
+
+    //Primeiro começa vendo se existe ponteiros para subarvores, caso não exista, adicionar elemento nessa arvre
+    //Caso contrario, adicionar em subarvore referente ao valor
+    for(int i = 0; i < tamanhoMaximoDeFilhos; i++)
     {
-        printf("entrou em criar nodo pois não foi inicializado\n");
-        nodo = CriarNodo();
-        nodo->valores[0] = valor;
-        *ponteiro = nodo;
+        if(nodo->valores[i] > valor)
+        {
+            if(nodo->ponteiros[i] != PONTEIRO_NAO_INICIALIZADO)
+            {
+                return InserirElemento(&nodo->ponteiros[i], valor);
+            }
+        }
+    }
+
+    //Caso tenha sido possivel inserir elemento no vetor ele retorna 1(Sucesso);
+    if(InserirElementoNoVetor(nodo->valores, valor) == 1)
+        return 1;
+    //Caso não tenha sido possivel inserir elemento no vetor, é necessario dividir o nodo
+    ArvoreB *nodoPai = DividirNodo(&nodo, valor);
+    if(nodo->nodoPai == NULL)
+    {
+        *ponteiro = nodoPai;
         return 1;
     }
+    //Caso o nodo já possua um pai, é necessario inserir os valores desse nodo no nodoPai
+    return InserirNodo(&nodo->nodoPai, &nodoPai);
+
+
+    //*ponteiro = nodoPai;
+}
+
+//Função chamada quando um nodo é dividido e é necessario pegar o nodo recem dividio e adicionar ele em outro nodo;
+int InserirNodo(ArvoreB **nodoAondeVaiSerInserido, ArvoreB **nodoParaSerInserido)
+{
+    ArvoreB *nodo = *nodoAondeVaiSerInserido, *nodoASerInserido = *nodoParaSerInserido;
+    //Caso seja possivel inserir o elemento existente no nodo pai, ajusta os ponteiros que vieram com o nodo sendo inserido
+    if(InserirElementoNoVetor(nodo->valores, nodoASerInserido->valores[0]) == 1)
+    {
+        for(int i = 0; i < tamanhoMinimoDeFilhos; i++)
+        {
+            if(nodoASerInserido->ponteiros[i] != PONTEIRO_NAO_INICIALIZADO)
+                InserirPonteirosNoNodo(&nodo, &nodoASerInserido->ponteiros[i]);
+        }
+        return 1;
+    }
+    //Caso não tenha sido possivel inserir elemento dividir o nodo atual com o elemento a mais
+    //CASO NAO EXISTA, definir o nodo dividido como o nodo principal
+    ArvoreB *nodoPai = DividirNodo(&nodo, nodoASerInserido->valores[0]);
+    if(nodo->nodoPai == NULL)
+    {
+        *nodoAondeVaiSerInserido = nodoPai;
+        return 1;
+    }
+    //E fazer a inserção do nodo dividido no nodo pai CASO EXISTA acima
+    //if()
+
+
+    //if(InserirElementoNoVetor(nodo->valores, valor) == 1)
+    //    return 1;
+    ////Caso não tenha sido possivel inserir elemento no vetor, é necessario dividir o nodo
+    //ArvoreB *nodoPai = DividirNodo(&nodo, valor);
+    //if(nodo->nodoPai != NULL)
+    //{
+    //    
+    //}
+    //*ponteiro = nodoPai;
+}
+
+void InserirPonteirosNoNodo(ArvoreB **nodoAReceberPonteiro, ArvoreB **ponteiro)
+{
+    ArvoreB *nodo = *nodoAReceberPonteiro, *pont = *ponteiro;
+    for(int i = 0; i < tamanhoMaximoDeFilhos; i++)
+    {
+        if(nodo->valores[i] > pont->valores[0])
+        {
+            nodo->ponteiros[i] = pont;
+            pont->nodoPai = nodo;
+            //MostrarValoresDaArvore(nodo);
+            return;
+        }
+    }
+    nodo->ponteiros[ordemDaArvore - 1] = pont;
+    pont->nodoPai = nodo;
+    //MostrarValoresDaArvore(nodo);
+    
+}
+
+//Caso tenha sido possivel inserir elemento no vetor ele retorna 1(Sucesso);
+//Caso não tenha, retorna 2(Fracasso);
+int InserirElementoNoVetor(int *vetor, int valor)
+{
     for(int i = 0; i < tamanhoMaximoDeValores; i++)
     {
-        if(nodo->valores[i] == VALOR_NAO_INICIALIZADO)
+        if(vetor[i] == VALOR_NAO_INICIALIZADO)
         {
-            printf("Inseriu valor na posicao %d\n", i);
-            nodo->valores[i] = valor;
-            if(i > 0)
-            {
-                QuickSort(nodo->valores, 0, i);
-                AjustarPonteiros(&nodo);
-            }
+            vetor[i] = valor;
+            QuickSort(vetor, 0, i);
             return 1;
         }
     }
-    //Caso ele passe para esse ponto, significa que o tamanho maximo de valores em um no foi estourado
-    //Então é necessario criar um vetor com os valores do nodo atual mais o valor que é para ser inserido
-    //Ex: valores [3, 5, 55, 121] Inserir 7; Cria vetor com 7 na ultima posiçao: [3, 5, 55, 121, 7];
-    // Quicksort nele: [3, 5, 7, 55, 121]; Divide o vetor em 2 e pega o elemento do meio: [3, 5] <-[7]-> [55, 121]
-    DividirNodo(&nodo, valor);
-    *ponteiro = nodo;
+    return 2;
 }
 
-void DividirNodo(ArvoreB **ponteiro, int valor)
+//Função chamada quando é necessario dividir o nodo em 2 partes e retornar o nodo pai
+ArvoreB* DividirNodo(ArvoreB **ponteiro, int valor)
 {
+    ArvoreB *nodoPai = CriarNodo(NULL), *nodoFilho1 = CriarNodo(nodoPai), *nodoFilho2 = CriarNodo(nodoPai);
     ArvoreB *nodo = *ponteiro;
-    //Caso ele passe para esse ponto, significa que o tamanho maximo de valores em um no foi estourado
-    //Então é necessario criar um vetor com os valores do nodo atual mais o valor que é para ser inserido
-    //Ex: valores [3, 5, 55, 121] Inserir 7; Cria vetor com 7 na ultima posiçao: [3, 5, 55, 121, 7];
-    // Quicksort nele: [3, 5, 7, 55, 121]; Divide o vetor em 2 e pega o elemento do meio: [3, 5] <-[7]-> [55, 121]
+
+    //Um for para colocar todos os valores do nodo principal dentro de um vetor
     for(int i = 0; i < tamanhoMaximoDeValores; i++)
     {
         vetorParaDispersoes[i] = nodo->valores[i];
     }
-    //Coloca o valor para ser inserido no novo vetor
     vetorParaDispersoes[tamanhoMaximoDeValores] = valor;
-    //Ordena esse vetor
-    QuickSort(vetorParaDispersoes, 0, tamanhoMaximoDeValores);
-    //printf("Valor do meio do vetor: %d\n", vetorParaDispersoes[tamanhoMinimoDeValores]);
-    //Cria outro nodo aonde o valor do meio do vetor é elevado
-    ArvoreB *nodoPai = CriarNodo(), *nodoFilho1 = CriarNodo(), *nodoFilho2 = CriarNodo();
+    QuickSort(vetorParaDispersoes,0, tamanhoMaximoDeValores);
+
+    //Começa a separar os valores nos nós
     nodoPai->valores[0] = vetorParaDispersoes[tamanhoMinimoDeValores];
-    //For para adicionar os valores antes do meio-termo ao filho1
     for(int i = 0; i < tamanhoMinimoDeValores; i++)
     {
         nodoFilho1->valores[i] = vetorParaDispersoes[i];
@@ -167,33 +257,9 @@ void DividirNodo(ArvoreB **ponteiro, int valor)
     {
         nodoFilho2->valores[j] = vetorParaDispersoes[i];
     }
-
-    //for(int i = 0; i < tamanhoMaximoDeValores; i++)
-    //{
-    //    if(nodoFilho1->valores[i] != VALOR_NAO_INICIALIZADO)
-    //    {
-    //        printf("%d\n", nodoFilho1->valores[i]);
-    //    }
-    //}
-    //printf("Nodo pai: %d\n", nodoPai->valores[0]);
-    //for(int i = 0; i < tamanhoMaximoDeValores; i++)
-    //{
-    //    if(nodoFilho2->valores[i] != VALOR_NAO_INICIALIZADO)
-    //    {
-    //        printf("%d\n", nodoFilho2->valores[i]);
-    //    }
-    //}
-    *ponteiro = nodoPai;
     nodoPai->ponteiros[0] = nodoFilho1;
     nodoPai->ponteiros[1] = nodoFilho2;
-}
-
-void AjustarPonteiros(ArvoreB **nodo)
-{
-    for(int i = 0; i < tamanhoMaximoDeValores; i++)
-    {
-        
-    }
+    return nodoPai;
 }
 
 void MostrarValoresDaArvore(ArvoreB *nodo)
@@ -210,7 +276,7 @@ void MostrarValoresDaArvore(ArvoreB *nodo)
 }
 
 
-ArvoreB* CriarNodo()
+ArvoreB* CriarNodo(ArvoreB *nodoP)
 {
     ArvoreB *nodo = NULL;
     nodo = malloc(sizeof(ArvoreB));
@@ -224,8 +290,8 @@ ArvoreB* CriarNodo()
     {
         nodo->ponteiros[i] = NULL;
     }
-    //memset(nodo->valores, VALOR_NAO_INICIALIZADO, sizeof(int) * ordemDaArvore);
-    //memset(*nodo->ponteiros, PONTEIRO_NAO_INICIALIZADO, sizeof(ArvoreB*) * (ordemDaArvore + 1));
+    if(nodo != NULL)
+        nodo->nodoPai = nodoP;
     return nodo;
 }
 
