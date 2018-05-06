@@ -81,29 +81,13 @@ void main()
                 BASHAjuda(argumentos);
             else if(!strcmp("calendario", entrada))
                 BASHCalendario(argumentos);
+            else
+                printf("Comando nao existente\n");
             return;
         }
         if(!strcmp("sair", entrada))
             return;
-        while(true)
-        {
-            int status;
-            pid_t resultado = waitpid(pid_filho, &status, WNOHANG);
-            wait(NULL);
-            if(resultado == 0); //processo filho ainda executando
-            else if(resultado == -1)    //processo filho deu erro
-            {
-                printf("Deu ruim, fechando programa");
-                //break;
-                return ;
-            }
-            else    //processo filho terminou
-            {
-                break;
-            }
-            break;
-        }
-        //sleep(3);
+        wait(NULL);
     }
 }
 
@@ -164,5 +148,3 @@ void BASHAjuda(char *argumentos)
     else if(!strcmp(argumentos, "calendario"))
         printf("\t\t\t%sCalendario%s\nMostra o calendario no formato tradicional\n\nComo deve ser utilizado: %scalendario%s\nNao possui argumentos\n\nExemplo:\n\t>> calendario\n\n",BBLU, KNRM, BBLU, KNRM);
 }
-
-//(usar a palavra listar como um dos seus parâmetros: -las, -la -ls -a, -s e -l)

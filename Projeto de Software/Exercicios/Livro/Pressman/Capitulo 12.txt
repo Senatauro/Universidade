@@ -1,0 +1,7 @@
+12.1)Discuta as 3 partes de um padrão de projeto e forneça um exemplo concreto de cada um deles de algum outro campo que não seja o de software
+As 3 partes de um padrão de projetos são:
+Padrão criacional; Padrão estrutural; Padrão comportamental;
+O padrão criacional trata da "criação, composição e representação" dos objetos em um software.
+Esses padrões dispoem de facilitam a instanciação e controle de objetos em um sistema e impoem restrições sobre o tipo e numero de objetos que podem ser criados em um sistemaum sistema e impoem restrições sobre o tipo e numero de objetos que podem ser criados em um sistema
+
+O padrão estrutural 

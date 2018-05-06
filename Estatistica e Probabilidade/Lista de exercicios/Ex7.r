@@ -1,0 +1,1 @@
+#7. Calcule os autovalores e autovetores da matriz do item 5
