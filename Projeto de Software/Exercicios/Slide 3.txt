@@ -1,0 +1,20 @@
+1.O que buscamos ao selecionar alguém para liderar um projeto de software?
+    Alguem que saiba solucionar problemas tecnicos e organizacionais estruturando de maneira sistematica uma solução ou instigando outros a procurarem uma solução.
+    Alguem que tenha responsabilidades para assumir um projeto e ter a confiança para assumir o controle quando necessario
+    
+
+2.Quais são as opções quando se tem de definir a estrutura de uma equipe de software?
+    
+
+3.O que é equipe consistente?
+
+
+4.Por que motivo equipes falham em ser consistentes?
+
+
+5.Quais são os sinais de que um projeto de software está em perigo?
+
+
+6.Como definir as características chave do projeto?
+
+

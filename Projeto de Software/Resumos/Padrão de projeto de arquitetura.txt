@@ -1,0 +1,9 @@
+Padrões de arquitetura definem uma abordagem especifica para tratar alguma caracteristica do sistema
+
+Exemplos:
+Controle de acesso, concorrencia, distribuição de informação...
+
+Controle de Acesso:
+    Existem varias situações em que o acesso a dados, recursos e funcionalidades de uma aplicação é limitado a usuarios finais bem definidos.(Sistema de login)
+    Do ponto de vista da arquitetura, o acesso a alguma parte da arquitetura de software deve ser rigorosamente controlado
+

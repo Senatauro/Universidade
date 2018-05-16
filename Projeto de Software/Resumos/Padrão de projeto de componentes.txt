@@ -1,0 +1,2 @@
+Os padrões de projeto de componentes dão soluções comprovadas que tratam de um ou mais subproblemas extraidos do modelo de requisitos.
+Em muitos casos, os padrões de projeto desse tipo focam em algum componente funcional do sistema.

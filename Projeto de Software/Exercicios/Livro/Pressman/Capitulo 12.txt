@@ -4,4 +4,14 @@ Padrão criacional; Padrão estrutural; Padrão comportamental;
 O padrão criacional trata da "criação, composição e representação" dos objetos em um software.
 Esses padrões dispoem de facilitam a instanciação e controle de objetos em um sistema e impoem restrições sobre o tipo e numero de objetos que podem ser criados em um sistemaum sistema e impoem restrições sobre o tipo e numero de objetos que podem ser criados em um sistema
 
-O padrão estrutural 
+O padrão estrutural foca em problemas e soluções associados a como classes e objetos são integrados para construir um sistema maior
+
+E o padrão comportamental trata de problemas associados a atribuição de responsabilidade e a maneira com que os objetos se comunicam.
+
+12.2)Qual a diferença em um padrão não generativo e generativo?
+Padrões não generativos descrevem uma situação e um problema porem não oferece nenhuma solução enquanto o generativo descreve um aspecto importante e repetivel de um sistema
+
+12.3)Como padrões de arquitetura diferem de padroes de componentes?
+Enquanto os padrões de projeto de arquitetura definem uma abordagem especifica para alguma caracteristica do sistema sendo desenvolvido, os padrões de projeto de componentes dão soluções comprovadas que resolvem um ou mais subproblemas que são extraidos do modelo de requisitos
+
+12.4)

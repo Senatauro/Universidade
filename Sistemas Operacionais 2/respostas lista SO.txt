@@ -1,0 +1,49 @@
+1	- Serve para identificar se o arquivo é executavel ou não e para identificar aonde começa o codigo executavel. Em outras palavras, para o sistema operacional não inicializar um arquivo texto.
+
+2	- Quanto o Kernel identifica um arquivo como um conjunto de registros, é necessario saber o tamanho de um registro para saber o tamanho do offset para se utilizar para acessar os registros
+
+3	- Não é essencial pois pode ser utilizado a chamada de sistema read() para ler um arquivo diretamente de uma posição no hd utilizando um buffer de dados
+
+4	- 
+
+5	- Sim, pois a função rename() muda o nome do registro que é um atributo do arquivo sem a necessidade de criar outro arquivo, enquanto copiar o mesmo arquivo e colocar um nome diferente é necessario alocar espaço, carregar o arquivo na memoria, salvar o arquivo no HD na nova posicao e com novo nome e deletar o arquivo antigo
+
+6	- 
+
+7	- Sim, utilizando o atributo de nome é possivel criar um sistema hierarquico de arquivos onde o SO processaria o nome do arquivo. Ex:"/usuarioA/pastaB/arquivoC.exe
+
+8	- Utilizando a função read() para avançar o ponteiro até um ponto desejado, e fechando e abrindo o arquivo de novo para reiniciar o ponteiro do arquivo caso necessario
+
+9	- /usr/ast/x
+
+10	- Fragmentação externa
+
+11	- Fazer em casa
+
+12	- Faz sentido desde que não seja necessario realizar a cada arquivo deletado
+
+13	- Maquina Fotografica
+
+14	- 
+
+15	- 10 MB
+
+16	- Armazenando os dados do proprio arquivo no i-node, considerando que o bloco de ponteiros leva a um bloco de 1kb, seria possivel armazenar: 8 blocos de 4 bytes: 32B + 1024B = 1056B
+
+17	- A Eleonor esta certa(Questão desconsiderada pelo professor, mal formulada)
+
+18	- 
+
+20
+	a) 1111 1111 1111 0000
+	b) 1000 0001 1111 0000
+	c) 1111 1111 1111 1100
+	d) 1111 1110 0000 1100
+
+23	- Deixar um aplicativo lidar com a data de backup dos arquivos
+
+27	- TempoMedio = h + 40(1 - h); TempoMedio = h + 40 - 40h; TempoMedio = 40 - 39h;
+
+29	- 50% de desperdicio. Depende de como vai ser utilizado, para guardar arquivos grandes não havera tanto disperdicio, mas caso o sistema armazene vários arquivos pequenos(menores que o tamanho do bloco) acontecera fragmentação interna, levando a muito espaço sendo disperdiçado
+
+30	-

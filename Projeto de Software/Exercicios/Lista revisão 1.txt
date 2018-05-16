@@ -1,0 +1,78 @@
+1)Explique o conceito de coesão e consistência no contexto de projeto de software. 
+    Coesão e consistencia são termos relacionados a equipes de desenvolvimento, aonde uma equipe que contem o mesmo pensamento para o desenvolvimento do projeto, não se contradiz e está unida é uma equipe coesa e coerente
+
+2)Explique o princípio da ocultação de informações, conforme se aplica ao projeto de software (relacionado com modularização). 
+    A ocultação de informações é o processo de encapsular informações de uma classe para somente a mesma ter acesso livre a seus dados enquanto outras podem acessar tais informações por meio de funções auxiliares
+
+3)Liste os quatro modelos de projeto necessários para uma especificação completa de um projeto de software e o papel de cada um.
+    Dados:
+        Criação de um modelo de dados e/ou informações que é representado em um nivel de abstração elevado
+        No nivel de arquitetura, o projeto de dados se concentra em arquivos ou banco de dados
+        No nivel de componentes, o projeto de dados considera as estruturas de dados necessarias para implementar os objetos de dados locais
+
+    Arquitetura:
+        Padrões de arquitetura definem uma abordagem especifica para tratar alguma caracteristica do sistema
+        
+    Componentes:
+        Os padrões de projeto de componentes dão soluções comprovadas que tratam de um ou mais subproblemas extraidos do modelo de requisitos.
+        Em muitos casos, os padrões de projeto desse tipo focam em algum componente funcional do sistema.
+
+    Interface:
+        Utilizado para representar fluxos de informações que entram e saem de um sistema e como são transmitidos entre os componentes definidos como parte da arquitetura
+
+4)Quais são as diferenças importantes entre o gerenciamento de projetos de software e outros tipos de gerenciamento de projetos?
+    O projeto de software não lida com um produto fisico, mas sim intangivel.
+    Não existem padrões os quais podem ser reutilizados entre vários projetos.
+    Cada projeto é unico em suas caracteristicas e requisitos.
+
+
+5)Liste 4 atividades fundamentais de gerenciamento de projetos.
+    Gerenciamento de riscos, recursos, planejamento de projeto e elaboração de propostas
+
+6)Quais são as três categorias relacionadas de risco?
+    Risco de projeto, produto e negócio
+
+7)Sugira 4 riscos que podem ameaçar o sucesso de um projeto de software.
+    Troca de tecnologia durante o desenvolvimento do projeto, equipe desunida, lançamento de um aplicativo parecido pela concorrencia e demissão de funcionario-chave
+
+8)O que está envolvido no monitoramento de risco?
+    Analisar a cada iteração do desenvolvimento do software se o projeto de riscos continua atual e correto, e adicionar novos riscos caso seja necessario
+
+9)Quais são os diferentes níveis na hierarquia de necessidades humanas?
+    Necessidade de autorealização
+    Necessidade de autoestima
+    Necessidade social
+    Necessidade de segurança
+    Necessidade fisiologica
+
+10)Quais são os principais fatores que influenciam a eficácia do grupo?
+    As pessoas no grupo, a organização do grupo e a comunicação entre a equipe de desenvolvimento e a gerencia
+
+11)Quais estimativas devem ser produzidas pelos gerentes de projeto de software?
+    
+
+12)Quais fatores devem ser considerados ao decidir sobre um preço para softwares?
+
+
+13)Quais são as principais atividades no processo de agendamento de projetos?
+
+
+14)Quais   são   as   diferenças   mais   importantes   entre   o   planejamento   ágil   e desenvolvimento baseado em plano?
+
+
+15)Descreva brevemente dois tipos de técnicas de estimativa de custos.
+
+
+16)Quais são os modelos de estimativa usados no COCOMO II?
+
+
+17)Quais são os quatro P's de gerenciamento de projetos eficazes?
+
+
+18)Que  medidas  podem  ser  tomadas  para  evitar  muitos  dos  problemas  que  fazem com que os projetos de software falhem?
+
+
+19)Como o escopo do software é definido?
+
+
+20)Como  as  métricas  de  processo  de  software  diferem  das  métricas  de  projeto  de software.

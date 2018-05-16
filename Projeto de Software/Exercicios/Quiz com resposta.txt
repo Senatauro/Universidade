@@ -1,0 +1,46 @@
+Chapter 22: Project management
+
+Your name:
+
+Answer all questions. 1 mark per question
+
+
+1.	What are important differences between software project management and other types of project management?
+	O produto gerado pelo projeto de software não é tangivel, não existe padrões existentes que podem ser aplicados para vários projetos, a técnologia esta em constante mudança e nem sempre o que foi definido no planejamento do software é o que será construido.
+
+
+2.	List 4 fundamental project management activities.
+	Gerenciamento de riscos, planejamento de projeto, geração de relatorios e gerenciamento de pessoas
+
+
+3.	What are three related categories of risk? 
+    Riscos de projeto, riscos de produto e riscos de negocio
+
+
+4.	Suggest 4 risks that may threaten the success of a software project? 
+	Uma equipe desunida, escopo do projeto mal formulado, um software igual ou melhor ser lançado antes do que esta sendo desenvolvido, falta de experiencia e capacidade tecnica dos envolvidos no projeto
+
+
+5.	Give 2 examples of technology risks that may arise in a software project.
+    Mudança de tecnologia enquanto o projeto está sendo desenvolvido; 
+
+
+6.	What is involved in risk monitoring?
+    A monitoriação regular dos riscos detectados, seus planos de mitigação caso ocorram e atualização dos riscos quando novos forem detectados
+
+
+7.	What are the four critical factors in people management?
+    Consistencia, respeito, inclusão e honestidade
+
+
+8.	What are the different levels in the human needs hierarchy?(De cima para baixo)
+    Necessidade de auto-realização
+    Necessidade de autoestima
+    Necessidade social
+    Necessidade de segurança
+    Necessidades fisiologica
+
+9.	What factors might be considered when selecting people for a software development team?
+    Um grupo com personalidades complementares pode funcionar melhor que um grupo selecionado apenas pela capacidade tecnica,
+
+10.	What are the key factors that influence the effectiveness of group communications?
